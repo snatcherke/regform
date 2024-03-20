@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f0f0; /* Replace with your desired background color */
+            background: linear-gradient(45deg, #f06, #16f, rgb(44, 42, 42), Purple, indigo, yellow, grey,Green, Red, violet);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: rgba(141, 201, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 20%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Registration Form</h2>
+        <form id="registration-form" action="/submit-form" method="get" onsubmit="showSuccessMessage(event)">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Others</option>
+            </select><br><br>
+
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" placeholder="Address" maxlength="25" required></textarea><br><br>
+
+            <label for="telephone">Telephone:</label><br>
+            <input type="tel" id="telephone" name="telephone" placeholder="Telephone" maxlength="10" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+
+            <label for="course">Course:</label><br>
+            <input type="text" id="course" name="course" placeholder="Course" required><br><br>
+
+            <input type="submit" value="Register">
+            <input type="button" value="Cancel">
+        </form>
+        <div id="success-message" class="hidden">
+            <p>Registration successful!</p>
+        </div>
+        <div class="footer">
+            &copy; 2024 Students Registration Form. All right reserved.
+        </div>
+    </div>
+
+    <script>
+        function showSuccessMessage(event) {
+            event.preventDefault();
+            document.getElementById('registration-form').reset();
+            document.getElementById('success-message').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('success-message').classList.add('hidden');
+            }, 3000); // Hide the message after 3 seconds
+        }
+    </script>
+</body>
+</html>
